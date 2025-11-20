@@ -26,7 +26,11 @@ const TabPage = () => {
     return <div className="block">Please select a tab</div>;
   }
 
-  return <div className="block">{tab.content}</div>;
+  return (
+    <div className="block" data-cy="TabContent">
+      {tab.content}
+    </div>
+  );
 };
 
 const TabsLayout = () => {
