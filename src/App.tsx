@@ -1,4 +1,12 @@
-import { Routes, Route, useParams, Outlet, NavLink } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  useParams,
+  Outlet,
+  Link,
+  NavLink,
+  Navigate,
+} from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -36,7 +44,7 @@ const TabsLayout = () => {
               data-cy="Tab"
               className={tab.id === tabId ? 'is-active' : ''}
             >
-              <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
@@ -72,6 +80,7 @@ export const App = () => (
       <div className="container">
         <Routes>
           <Route path="/" element={<h1 className="title">Home page</h1>} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
 
           <Route path="tabs" element={<TabsLayout />}>
             <Route
